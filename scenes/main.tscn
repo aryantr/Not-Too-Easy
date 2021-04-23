@@ -1,0 +1,103 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://fonts/Poppins-ExtraBoldItalic.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/platform.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/main.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=3]
+size = 33
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 360.04, 1.54585 )
+
+[sub_resource type="PhysicsMaterial" id=2]
+friction = 0.0
+rough = true
+absorbent = true
+
+[node name="main" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -166.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 3 )
+text = "score : "
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 360, 640 )
+current = true
+smoothing_enabled = true
+drag_margin_left = 1.0
+drag_margin_top = 0.65
+drag_margin_right = 1.0
+drag_margin_bottom = 1.0
+editor_draw_screen = false
+
+[node name="Area2D" type="Area2D" parent="Camera2D"]
+position = Vector2( 0, -394.301 )
+monitoring = false
+monitorable = false
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Area2D"]
+shape = SubResource( 1 )
+
+[node name="platform_1" parent="." instance=ExtResource( 2 )]
+position = Vector2( 360, 1216 )
+
+[node name="platform_2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 360, 1024 )
+
+[node name="platform_3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 360, 832 )
+
+[node name="platform_4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 360, 640 )
+
+[node name="platform_5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 360, 448 )
+
+[node name="platform_6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 360, 256 )
+
+[node name="platform_7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 360, 64 )
+
+[node name="platform_8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 360, -128 )
+
+[node name="platform_9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 360, -320 )
+
+[node name="platform_10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 360, -512 )
+
+[node name="platform_11" parent="." instance=ExtResource( 2 )]
+position = Vector2( 360, -704 )
+
+[node name="platform_12" parent="." instance=ExtResource( 2 )]
+position = Vector2( 360, -896 )
+
+[node name="platform_13" parent="." instance=ExtResource( 2 )]
+position = Vector2( 360, -1088 )
+
+[node name="player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 360, 1168 )
+physics_material_override = SubResource( 2 )
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
+[connection signal="body_entered" from="Camera2D/Area2D" to="." method="_on_Area2D_body_entered"]
