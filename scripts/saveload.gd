@@ -28,6 +28,7 @@ func _create_file(score):
 	var file = File.new()
 	if(file.open_encrypted_with_pass(location, File.WRITE,password) != 0):#check storage permission
 		print("Error storing..permission not granted\nUpdate ",OS.get_user_data_dir()," permission to save score")
+		OS.alert("Grant permission for storing save game","Really!!")
 	else:
 		var data = {
 			"score" : score

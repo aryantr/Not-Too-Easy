@@ -18,32 +18,33 @@ anchor_bottom = 0.997
 margin_left = -89.8
 margin_right = 90.8
 margin_bottom = -0.159912
-custom_constants/separation = 21
+custom_constants/separation = 30
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="VBoxContainer"]
-margin_top = 500.0
-margin_right = 447.0
-margin_bottom = 574.0
+margin_top = 351.0
+margin_right = 402.0
+margin_bottom = 425.0
 custom_fonts/font = ExtResource( 1 )
 align = 1
 uppercase = true
 
 [node name="Play" type="Button" parent="VBoxContainer"]
-margin_top = 595.0
-margin_right = 447.0
-margin_bottom = 675.0
+margin_top = 455.0
+margin_right = 402.0
+margin_bottom = 535.0
 custom_fonts/font = ExtResource( 1 )
 text = "Play"
 
 [node name="Exit" type="Button" parent="VBoxContainer"]
-margin_top = 696.0
-margin_right = 447.0
-margin_bottom = 776.0
+margin_top = 565.0
+margin_right = 402.0
+margin_bottom = 645.0
 custom_fonts/font = ExtResource( 1 )
 text = "Exit"
+
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_Exit_pressed"]

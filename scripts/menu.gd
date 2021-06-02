@@ -10,8 +10,9 @@ func _ready():
 	
 
 func _on_Play_pressed():
-	yield(get_tree().create_timer(1.5), "timeout")
-	get_tree().change_scene_to(main_scene)
+	yield(get_tree().create_timer(1.0), "timeout")
+	if get_tree().change_scene_to(main_scene) != 0:
+		get_tree().quit()
 
 
 func _on_Exit_pressed():
